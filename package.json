@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node ./test/testSyntax.js",
     "build": "node ./build.js"
   },
   "author": "RainNeko",
@@ -12,6 +12,7 @@
   "dependencies": {},
   "devDependencies": {
     "jsdom": "^15.1.1",
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.0",
+    "typescript": "^3.6.2"
   }
 }

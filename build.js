@@ -1,19 +1,16 @@
 const { JSDOM } = require("jsdom")
 const fetch = require("node-fetch")
 const fs = require("fs")
-const path = require("path")
 
+const Config = require("./config.js")
 const {Parser} = require("./lib/parser.js")
 const TypeScriptPrinter = require("./lib/typeScriptPrinter.js")
 
-
-
-const PATH_TS = path.join(__dirname, "javascript", "index.d.ts");
-const PATH_FLOW = path.join(__dirname, "javascript", "index.js.flow");
-
 const URL_BOTS_API = `https://core.telegram.org/bots/api`;
 
-
+const printerMap = {
+	typescript: TypeScriptPrinter
+};
 
 (async() => {
 	console.log(`Load html data from '${URL_BOTS_API}'`);
@@ -30,11 +27,15 @@ const URL_BOTS_API = `https://core.telegram.org/bots/api`;
 	console.log(`Parse types from dom`);
 	const types = (new Parser()).parse(dom.window);
 	console.log(`Successfully parsed ${types.size} types`);
-	
-	console.log(`Create ts code`);
-	const typesTSCode = (new TypeScriptPrinter()).printer(types);
 
-	console.log(`Save ts code`);
-	fs.writeFileSync(PATH_TS, typesTSCode);
-	fs.writeFileSync(PATH_FLOW, typesTSCode);
+	for(const options of Config) {
+		console.log(``);
+		console.log(`Create '${options.lang}' code`);
+		const code = (new printerMap[options.printer]()).printer(types);
+
+		console.log(`Save '${options.lang}' code`);
+		fs.writeFileSync(options.path, code);
+	}
+	
+	require("./test/testSyntax.js");
 })();
