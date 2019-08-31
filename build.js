@@ -25,7 +25,7 @@ const URL_BOTS_API = `https://core.telegram.org/bots/api`;
 	console.log(`Successfully parsed ${types.size} types`);
 	
 	console.log(`Create ts code`);
-	const typesTSCode = (new TypeScriptPrinter(types)).printer(types);
+	const typesTSCode = (new TypeScriptPrinter()).printer(types);
 
 	console.log(`Save ts code`);
 	fs.writeFileSync(PATH_TS, typesTSCode);
