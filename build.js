@@ -13,9 +13,16 @@ const PATH_FLOW = path.join(__dirname, "javascript", "index.js.flow");
 
 const URL_BOTS_API = `https://core.telegram.org/bots/api`;
 
+
+
 (async() => {
 	console.log(`Load html data from '${URL_BOTS_API}'`);
-	const html = await (await fetch(URL_BOTS_API)).text();
+	let html;
+	try {
+		html = fs.readFileSync("../_dev_m/core.telegram.org-bots-api.html");
+	} catch(e) {
+		html = await (await fetch(URL_BOTS_API)).text();
+	}
 	
 	console.log(`Create dom from html data`);
 	const dom = new JSDOM(html);

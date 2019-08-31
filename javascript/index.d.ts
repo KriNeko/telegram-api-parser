@@ -11,7 +11,7 @@ export type Update = {
   * of order. If there are no new updates for at least a week, then 
   * identifier of the next update will be chosen randomly instead of sequentially.
   */
-  update_id: Number,
+  update_id: number,
   /** Optional. New incoming message of any kind — text, photo, sticker, etc. */
   message?: Message,
   /**
@@ -56,50 +56,50 @@ export type Update = {
 /** Contains information about the current status of a webhook. */
 export type WebhookInfo = {
   /** Webhook URL, may be empty if webhook is not set up */
-  url: String,
+  url: string,
   /**
   * True, if a custom certificate was provided for webhook certificate checks
   */
-  has_custom_certificate: Boolean,
+  has_custom_certificate: boolean,
   /** Number of updates awaiting delivery */
-  pending_update_count: Number,
+  pending_update_count: number,
   /**
   * Optional. Unix time for the most recent error that happened when trying 
   * to deliver an update via webhook
   */
-  last_error_date?: Number,
+  last_error_date?: number,
   /**
   * Optional. Error message in human-readable format for the most recent 
   * error that happened when trying to deliver an update via webhook
   */
-  last_error_message?: String,
+  last_error_message?: string,
   /**
   * Optional. Maximum allowed number of simultaneous HTTPS connections to 
   * the webhook for update delivery
   */
-  max_connections?: Number,
+  max_connections?: number,
   /**
   * Optional. A list of update types the bot is subscribed to. Defaults to 
   * all update types
   */
-  allowed_updates?: Array<String>,
+  allowed_updates?: Array<string>,
   
 }
 
 /** This object represents a Telegram user or bot. */
 export type User = {
   /** Unique identifier for this user or bot */
-  id: Number,
+  id: number,
   /** True, if this user is a bot */
-  is_bot: Boolean,
+  is_bot: boolean,
   /** User‘s or bot’s first name */
-  first_name: String,
+  first_name: string,
   /** Optional. User‘s or bot’s last name */
-  last_name?: String,
+  last_name?: string,
   /** Optional. User‘s or bot’s username */
-  username?: String,
+  username?: string,
   /** Optional. IETF language tag of the user's language */
-  language_code?: String,
+  language_code?: string,
   
 }
 
@@ -111,35 +111,35 @@ export type Chat = {
   * interpreting it. But it is smaller than 52 bits, so a signed 64 bit 
   * integer or double-precision float type are safe for storing this identifier.
   */
-  id: Number,
+  id: number,
   /**
   * Type of chat, can be either “private”, “group”, “supergroup” or “channel”
   */
-  type: String,
+  type: string,
   /** Optional. Title, for supergroups, channels and group chats */
-  title?: String,
+  title?: string,
   /**
   * Optional. Username, for private chats, supergroups and channels if available
   */
-  username?: String,
+  username?: string,
   /** Optional. First name of the other party in a private chat */
-  first_name?: String,
+  first_name?: string,
   /** Optional. Last name of the other party in a private chat */
-  last_name?: String,
+  last_name?: string,
   /** Optional. Chat photo. Returned only in getChat. */
   photo?: ChatPhoto,
   /**
   * Optional. Description, for groups, supergroups and channel chats. 
   * Returned only in getChat.
   */
-  description?: String,
+  description?: string,
   /**
   * Optional. Chat invite link, for groups, supergroups and channel chats. 
   * Each administrator in a chat generates their own invite links, so the 
   * bot must first generate the link using exportChatInviteLink. Returned 
   * only in getChat.
   */
-  invite_link?: String,
+  invite_link?: string,
   /**
   * Optional. Pinned message, for groups, supergroups and channels. Returned 
   * only in getChat.
@@ -153,23 +153,23 @@ export type Chat = {
   /**
   * Optional. For supergroups, name of group sticker set. Returned only in getChat.
   */
-  sticker_set_name?: String,
+  sticker_set_name?: string,
   /**
   * Optional. True, if the bot can change the group sticker set. Returned 
   * only in getChat.
   */
-  can_set_sticker_set?: Boolean,
+  can_set_sticker_set?: boolean,
   
 }
 
 /** This object represents a message. */
 export type Message = {
   /** Unique message identifier inside this chat */
-  message_id: Number,
+  message_id: number,
   /** Optional. Sender, empty for messages sent to channels */
   from?: User,
   /** Date the message was sent in Unix time */
-  date: Number,
+  date: number,
   /** Conversation the message belongs to */
   chat: Chat,
   /** Optional. For forwarded messages, sender of the original message */
@@ -183,22 +183,22 @@ export type Message = {
   * Optional. For messages forwarded from channels, identifier of the 
   * original message in the channel
   */
-  forward_from_message_id?: Number,
+  forward_from_message_id?: number,
   /**
   * Optional. For messages forwarded from channels, signature of the post 
   * author if present
   */
-  forward_signature?: String,
+  forward_signature?: string,
   /**
   * Optional. Sender's name for messages forwarded from users who disallow 
   * adding a link to their account in forwarded messages
   */
-  forward_sender_name?: String,
+  forward_sender_name?: string,
   /**
   * Optional. For forwarded messages, date the original message was sent in 
   * Unix time
   */
-  forward_date?: Number,
+  forward_date?: number,
   /**
   * Optional. For replies, the original message. Note that the Message 
   * object in this field will not contain further reply_to_message fields 
@@ -206,19 +206,19 @@ export type Message = {
   */
   reply_to_message?: Message,
   /** Optional. Date the message was last edited in Unix time */
-  edit_date?: Number,
+  edit_date?: number,
   /**
   * Optional. The unique identifier of a media message group this message 
   * belongs to
   */
-  media_group_id?: String,
+  media_group_id?: string,
   /** Optional. Signature of the post author for messages in channels */
-  author_signature?: String,
+  author_signature?: string,
   /**
   * Optional. For text messages, the actual UTF-8 text of the message, 
   * 0-4096 characters.
   */
-  text?: String,
+  text?: string,
   /**
   * Optional. For text messages, special entities like usernames, URLs, bot 
   * commands, etc. that appear in the text
@@ -258,7 +258,7 @@ export type Message = {
   * Optional. Caption for the animation, audio, document, photo, video or 
   * voice, 0-1024 characters
   */
-  caption?: String,
+  caption?: string,
   /** Optional. Message is a shared contact, information about the contact */
   contact?: Contact,
   /** Optional. Message is a shared location, information about the location */
@@ -278,13 +278,13 @@ export type Message = {
   */
   left_chat_member?: User,
   /** Optional. A chat title was changed to this value */
-  new_chat_title?: String,
+  new_chat_title?: string,
   /** Optional. A chat photo was change to this value */
   new_chat_photo?: Array<PhotoSize>,
   /** Optional. Service message: the chat photo was deleted */
-  delete_chat_photo?: Boolean,
+  delete_chat_photo?: boolean,
   /** Optional. Service message: the group has been created */
-  group_chat_created?: Boolean,
+  group_chat_created?: boolean,
   /**
   * Optional. Service message: the supergroup has been created. This field 
   * can‘t be received in a message coming through updates, because bot can’t 
@@ -292,14 +292,14 @@ export type Message = {
   * reply_to_message if someone replies to a very first message in a 
   * directly created supergroup.
   */
-  supergroup_chat_created?: Boolean,
+  supergroup_chat_created?: boolean,
   /**
   * Optional. Service message: the channel has been created. This field 
   * can‘t be received in a message coming through updates, because bot can’t 
   * be a member of a channel when it is created. It can only be found in 
   * reply_to_message if someone replies to a very first message in a channel.
   */
-  channel_chat_created?: Boolean,
+  channel_chat_created?: boolean,
   /**
   * Optional. The group has been migrated to a supergroup with the specified 
   * identifier. This number may be greater than 32 bits and some programming 
@@ -307,7 +307,7 @@ export type Message = {
   * is smaller than 52 bits, so a signed 64 bit integer or double-precision 
   * float type are safe for storing this identifier.
   */
-  migrate_to_chat_id?: Number,
+  migrate_to_chat_id?: number,
   /**
   * Optional. The supergroup has been migrated from a group with the 
   * specified identifier. This number may be greater than 32 bits and some 
@@ -315,7 +315,7 @@ export type Message = {
   * it. But it is smaller than 52 bits, so a signed 64 bit integer or 
   * double-precision float type are safe for storing this identifier.
   */
-  migrate_from_chat_id?: Number,
+  migrate_from_chat_id?: number,
   /**
   * Optional. Specified message was pinned. Note that the Message object in 
   * this field will not contain further reply_to_message fields even if it 
@@ -336,7 +336,7 @@ export type Message = {
   * Optional. The domain name of the website on which the user has logged 
   * in. More about Telegram Login »
   */
-  connected_website?: String,
+  connected_website?: string,
   /** Optional. Telegram Passport data */
   passport_data?: PassportData,
   /**
@@ -358,16 +358,16 @@ export type MessageEntity = {
   * text), code (monowidth string), pre (monowidth block), text_link (for 
   * clickable text URLs), text_mention (for users without usernames)
   */
-  type: String,
+  type: string,
   /** Offset in UTF-16 code units to the start of the entity */
-  offset: Number,
+  offset: number,
   /** Length of the entity in UTF-16 code units */
-  length: Number,
+  length: number,
   /**
   * Optional. For “text_link” only, url that will be opened after user taps 
   * on the text
   */
-  url?: String,
+  url?: string,
   /** Optional. For “text_mention” only, the mentioned user */
   user?: User,
   
@@ -378,13 +378,13 @@ export type MessageEntity = {
 */
 export type PhotoSize = {
   /** Identifier for this file */
-  file_id: String,
+  file_id: string,
   /** Photo width */
-  width: Number,
+  width: number,
   /** Photo height */
-  height: Number,
+  height: number,
   /** Optional. File size */
-  file_size?: Number,
+  file_size?: number,
   
 }
 
@@ -394,17 +394,17 @@ export type PhotoSize = {
 */
 export type Audio = {
   /** Identifier for this file */
-  file_id: String,
+  file_id: string,
   /** Duration of the audio in seconds as defined by sender */
-  duration: Number,
+  duration: number,
   /** Optional. Performer of the audio as defined by sender or by audio tags */
-  performer?: String,
+  performer?: string,
   /** Optional. Title of the audio as defined by sender or by audio tags */
-  title?: String,
+  title?: string,
   /** Optional. MIME type of the file as defined by sender */
-  mime_type?: String,
+  mime_type?: string,
   /** Optional. File size */
-  file_size?: Number,
+  file_size?: number,
   /** Optional. Thumbnail of the album cover to which the music file belongs */
   thumb?: PhotoSize,
   
@@ -416,34 +416,34 @@ export type Audio = {
 */
 export type Document = {
   /** Identifier for this file */
-  file_id: String,
+  file_id: string,
   /** Optional. Document thumbnail as defined by sender */
   thumb?: PhotoSize,
   /** Optional. Original filename as defined by sender */
-  file_name?: String,
+  file_name?: string,
   /** Optional. MIME type of the file as defined by sender */
-  mime_type?: String,
+  mime_type?: string,
   /** Optional. File size */
-  file_size?: Number,
+  file_size?: number,
   
 }
 
 /** This object represents a video file. */
 export type Video = {
   /** Identifier for this file */
-  file_id: String,
+  file_id: string,
   /** Video width as defined by sender */
-  width: Number,
+  width: number,
   /** Video height as defined by sender */
-  height: Number,
+  height: number,
   /** Duration of the video in seconds as defined by sender */
-  duration: Number,
+  duration: number,
   /** Optional. Video thumbnail */
   thumb?: PhotoSize,
   /** Optional. Mime type of a file as defined by sender */
-  mime_type?: String,
+  mime_type?: string,
   /** Optional. File size */
-  file_size?: Number,
+  file_size?: number,
   
 }
 
@@ -453,34 +453,34 @@ export type Video = {
 */
 export type Animation = {
   /** Identifier for this file */
-  file_id: String,
+  file_id: string,
   /** Video width as defined by sender */
-  width: Number,
+  width: number,
   /** Video height as defined by sender */
-  height: Number,
+  height: number,
   /** Duration of the video in seconds as defined by sender */
-  duration: Number,
+  duration: number,
   /** Optional. Animation thumbnail as defined by sender */
   thumb?: PhotoSize,
   /** Optional. Original animation filename as defined by sender */
-  file_name?: String,
+  file_name?: string,
   /** Optional. MIME type of the file as defined by sender */
-  mime_type?: String,
+  mime_type?: string,
   /** Optional. File size */
-  file_size?: Number,
+  file_size?: number,
   
 }
 
 /** This object represents a voice note. */
 export type Voice = {
   /** Identifier for this file */
-  file_id: String,
+  file_id: string,
   /** Duration of the audio in seconds as defined by sender */
-  duration: Number,
+  duration: number,
   /** Optional. MIME type of the file as defined by sender */
-  mime_type?: String,
+  mime_type?: string,
   /** Optional. File size */
-  file_size?: Number,
+  file_size?: number,
   
 }
 
@@ -489,41 +489,41 @@ export type Voice = {
 */
 export type VideoNote = {
   /** Identifier for this file */
-  file_id: String,
+  file_id: string,
   /**
   * Video width and height (diameter of the video message) as defined by sender
   */
-  length: Number,
+  length: number,
   /** Duration of the video in seconds as defined by sender */
-  duration: Number,
+  duration: number,
   /** Optional. Video thumbnail */
   thumb?: PhotoSize,
   /** Optional. File size */
-  file_size?: Number,
+  file_size?: number,
   
 }
 
 /** This object represents a phone contact. */
 export type Contact = {
   /** Contact's phone number */
-  phone_number: String,
+  phone_number: string,
   /** Contact's first name */
-  first_name: String,
+  first_name: string,
   /** Optional. Contact's last name */
-  last_name?: String,
+  last_name?: string,
   /** Optional. Contact's user identifier in Telegram */
-  user_id?: Number,
+  user_id?: number,
   /** Optional. Additional data about the contact in the form of a vCard */
-  vcard?: String,
+  vcard?: string,
   
 }
 
 /** This object represents a point on the map. */
 export type Location = {
   /** Longitude as defined by sender */
-  longitude: Number,
+  longitude: number,
   /** Latitude as defined by sender */
-  latitude: Number,
+  latitude: number,
   
 }
 
@@ -532,45 +532,45 @@ export type Venue = {
   /** Venue location */
   location: Location,
   /** Name of the venue */
-  title: String,
+  title: string,
   /** Address of the venue */
-  address: String,
+  address: string,
   /** Optional. Foursquare identifier of the venue */
-  foursquare_id?: String,
+  foursquare_id?: string,
   /**
   * Optional. Foursquare type of the venue. (For example, 
   * “arts_entertainment/default”, “arts_entertainment/aquarium” or “food/icecream”.)
   */
-  foursquare_type?: String,
+  foursquare_type?: string,
   
 }
 
 /** This object contains information about one answer option in a poll. */
 export type PollOption = {
   /** Option text, 1-100 characters */
-  text: String,
+  text: string,
   /** Number of users that voted for this option */
-  voter_count: Number,
+  voter_count: number,
   
 }
 
 /** This object contains information about a poll. */
 export type Poll = {
   /** Unique poll identifier */
-  id: String,
+  id: string,
   /** Poll question, 1-255 characters */
-  question: String,
+  question: string,
   /** List of poll options */
   options: Array<PollOption>,
   /** True, if the poll is closed */
-  is_closed: Boolean,
+  is_closed: boolean,
   
 }
 
 /** This object represent a user's profile pictures. */
 export type UserProfilePhotos = {
   /** Total number of profile pictures the target user has */
-  total_count: Number,
+  total_count: number,
   /** Requested profile pictures (in up to 4 sizes each) */
   photos: Array<Array<PhotoSize>>,
   
@@ -585,14 +585,14 @@ export type UserProfilePhotos = {
 */
 export type File = {
   /** Identifier for this file */
-  file_id: String,
+  file_id: string,
   /** Optional. File size, if known */
-  file_size?: Number,
+  file_size?: number,
   /**
   * Optional. File path. Use 
   * https://api.telegram.org/file/bot<token>/<file_path> to get the file.
   */
-  file_path?: String,
+  file_path?: string,
   
 }
 
@@ -611,7 +611,7 @@ export type ReplyKeyboardMarkup = {
   * buttons). Defaults to false, in which case the custom keyboard is always 
   * of the same height as the app's standard keyboard.
   */
-  resize_keyboard?: Boolean,
+  resize_keyboard?: boolean,
   /**
   * Optional. Requests clients to hide the keyboard as soon as it's been 
   * used. The keyboard will still be available, but clients will 
@@ -619,7 +619,7 @@ export type ReplyKeyboardMarkup = {
   * can press a special button in the input field to see the custom keyboard 
   * again. Defaults to false.
   */
-  one_time_keyboard?: Boolean,
+  one_time_keyboard?: boolean,
   /**
   * Optional. Use this parameter if you want to show the keyboard to 
   * specific users only. Targets: 1) users that are @mentioned in the text 
@@ -629,7 +629,7 @@ export type ReplyKeyboardMarkup = {
   * keyboard to select the new language. Other users in the group don’t see 
   * the keyboard.
   */
-  selective?: Boolean,
+  selective?: boolean,
   
 }
 
@@ -643,17 +643,17 @@ export type KeyboardButton = {
   * Text of the button. If none of the optional fields are used, it will be 
   * sent as a message when the button is pressed
   */
-  text: String,
+  text: string,
   /**
   * Optional. If True, the user's phone number will be sent as a contact 
   * when the button is pressed. Available in private chats only
   */
-  request_contact?: Boolean,
+  request_contact?: boolean,
   /**
   * Optional. If True, the user's current location will be sent when the 
   * button is pressed. Available in private chats only
   */
-  request_location?: Boolean,
+  request_location?: boolean,
   
 }
 
@@ -670,7 +670,7 @@ export type ReplyKeyboardRemove = {
   * summon this keyboard; if you want to hide the keyboard from sight but 
   * keep it accessible, use one_time_keyboard in ReplyKeyboardMarkup)
   */
-  remove_keyboard: Boolean,
+  remove_keyboard: boolean,
   /**
   * Optional. Use this parameter if you want to remove the keyboard for 
   * specific users only. Targets: 1) users that are @mentioned in the text 
@@ -680,7 +680,7 @@ export type ReplyKeyboardRemove = {
   * and removes the keyboard for that user, while still showing the keyboard 
   * with poll options to users who haven't voted yet.
   */
-  selective?: Boolean,
+  selective?: boolean,
   
 }
 
@@ -703,9 +703,9 @@ export type InlineKeyboardMarkup = {
 */
 export type InlineKeyboardButton = {
   /** Label text on the button */
-  text: String,
+  text: string,
   /** Optional. HTTP or tg:// url to be opened when button is pressed */
-  url?: String,
+  url?: string,
   /**
   * Optional. An HTTP URL used to automatically authorize the user. Can be 
   * used as a replacement for the Telegram Login Widget.
@@ -715,7 +715,7 @@ export type InlineKeyboardButton = {
   * Optional. Data to be sent in a callback query to the bot when button is 
   * pressed, 1-64 bytes
   */
-  callback_data?: String,
+  callback_data?: string,
   /**
   * Optional. If set, pressing the button will prompt the user to select one 
   * of their chats, open that chat and insert the bot‘s username and the 
@@ -726,7 +726,7 @@ export type InlineKeyboardButton = {
   * switch_pm… actions – in this case the user will be automatically 
   * returned to the chat they switched from, skipping the chat selection screen.
   */
-  switch_inline_query?: String,
+  switch_inline_query?: string,
   /**
   * Optional. If set, pressing the button will insert the bot‘s username and 
   * the specified inline query in the current chat's input field. Can be 
@@ -734,7 +734,7 @@ export type InlineKeyboardButton = {
   * offers a quick way for the user to open your bot in inline mode in the 
   * same chat – good for selecting something from multiple options.
   */
-  switch_inline_query_current_chat?: String,
+  switch_inline_query_current_chat?: string,
   /**
   * Optional. Description of the game that will be launched when the user 
   * presses the button.NOTE: This type of button must always be the first 
@@ -745,7 +745,7 @@ export type InlineKeyboardButton = {
   * Optional. Specify True, to send a Pay button.NOTE: This type of button 
   * must always be the first button in the first row.
   */
-  pay?: Boolean,
+  pay?: boolean,
   
 }
 
@@ -765,21 +765,21 @@ export type LoginUrl = {
   * data to verify the authentication and the integrity of the data as 
   * described in Checking authorization.
   */
-  url: String,
+  url: string,
   /** Optional. New text of the button in forwarded messages. */
-  forward_text?: String,
+  forward_text?: string,
   /**
   * Optional. Username of a bot, which will be used for user authorization. 
   * See Setting up a bot for more details. If not specified, the current 
   * bot's username will be assumed. The url's domain must be the same as the 
   * domain linked with the bot. See Linking your domain to the bot for more details.
   */
-  bot_username?: String,
+  bot_username?: string,
   /**
   * Optional. Pass True to request the permission for your bot to send 
   * messages to the user.
   */
-  request_write_access?: Boolean,
+  request_write_access?: boolean,
   
 }
 
@@ -793,7 +793,7 @@ export type LoginUrl = {
 */
 export type CallbackQuery = {
   /** Unique identifier for this query */
-  id: String,
+  id: string,
   /** Sender */
   from: User,
   /**
@@ -806,22 +806,22 @@ export type CallbackQuery = {
   * Optional. Identifier of the message sent via the bot in inline mode, 
   * that originated the query.
   */
-  inline_message_id?: String,
+  inline_message_id?: string,
   /**
   * Global identifier, uniquely corresponding to the chat to which the 
   * message with the callback button was sent. Useful for high scores in games.
   */
-  chat_instance: String,
+  chat_instance: string,
   /**
   * Optional. Data associated with the callback button. Be aware that a bad 
   * client can send arbitrary data in this field.
   */
-  data?: String,
+  data?: string,
   /**
   * Optional. Short name of a Game to be returned, serves as the unique 
   * identifier for the game
   */
-  game_short_name?: String,
+  game_short_name?: string,
   
 }
 
@@ -837,14 +837,14 @@ export type ForceReply = {
   * Shows reply interface to the user, as if they manually selected the 
   * bot‘s message and tapped ’Reply'
   */
-  force_reply: Boolean,
+  force_reply: boolean,
   /**
   * Optional. Use this parameter if you want to force reply from specific 
   * users only. Targets: 1) users that are @mentioned in the text of the 
   * Message object; 2) if the bot's message is a reply (has 
   * reply_to_message_id), sender of the original message.
   */
-  selective?: Boolean,
+  selective?: boolean,
   
 }
 
@@ -854,12 +854,12 @@ export type ChatPhoto = {
   * File identifier of small (160x160) chat photo. This file_id can be used 
   * only for photo download and only for as long as the photo is not changed.
   */
-  small_file_id: String,
+  small_file_id: string,
   /**
   * File identifier of big (640x640) chat photo. This file_id can be used 
   * only for photo download and only for as long as the photo is not changed.
   */
-  big_file_id: String,
+  big_file_id: string,
   
 }
 
@@ -871,86 +871,86 @@ export type ChatMember = {
   * The member's status in the chat. Can be “creator”, “administrator”, 
   * “member”, “restricted”, “left” or “kicked”
   */
-  status: String,
+  status: string,
   /**
   * Optional. Restricted and kicked only. Date when restrictions will be 
   * lifted for this user; unix time
   */
-  until_date?: Number,
+  until_date?: number,
   /**
   * Optional. Administrators only. True, if the bot is allowed to edit 
   * administrator privileges of that user
   */
-  can_be_edited?: Boolean,
+  can_be_edited?: boolean,
   /**
   * Optional. Administrators only. True, if the administrator can post in 
   * the channel; channels only
   */
-  can_post_messages?: Boolean,
+  can_post_messages?: boolean,
   /**
   * Optional. Administrators only. True, if the administrator can edit 
   * messages of other users and can pin messages; channels only
   */
-  can_edit_messages?: Boolean,
+  can_edit_messages?: boolean,
   /**
   * Optional. Administrators only. True, if the administrator can delete 
   * messages of other users
   */
-  can_delete_messages?: Boolean,
+  can_delete_messages?: boolean,
   /**
   * Optional. Administrators only. True, if the administrator can restrict, 
   * ban or unban chat members
   */
-  can_restrict_members?: Boolean,
+  can_restrict_members?: boolean,
   /**
   * Optional. Administrators only. True, if the administrator can add new 
   * administrators with a subset of his own privileges or demote 
   * administrators that he has promoted, directly or indirectly (promoted by 
   * administrators that were appointed by the user)
   */
-  can_promote_members?: Boolean,
+  can_promote_members?: boolean,
   /**
   * Optional. Administrators and restricted only. True, if the user is 
   * allowed to change the chat title, photo and other settings
   */
-  can_change_info?: Boolean,
+  can_change_info?: boolean,
   /**
   * Optional. Administrators and restricted only. True, if the user is 
   * allowed to invite new users to the chat
   */
-  can_invite_users?: Boolean,
+  can_invite_users?: boolean,
   /**
   * Optional. Administrators and restricted only. True, if the user is 
   * allowed to pin messages; groups and supergroups only
   */
-  can_pin_messages?: Boolean,
+  can_pin_messages?: boolean,
   /**
   * Optional. Restricted only. True, if the user is a member of the chat at 
   * the moment of the request
   */
-  is_member?: Boolean,
+  is_member?: boolean,
   /**
   * Optional. Restricted only. True, if the user is allowed to send text 
   * messages, contacts, locations and venues
   */
-  can_send_messages?: Boolean,
+  can_send_messages?: boolean,
   /**
   * Optional. Restricted only. True, if the user is allowed to send audios, 
   * documents, photos, videos, video notes and voice notes
   */
-  can_send_media_messages?: Boolean,
+  can_send_media_messages?: boolean,
   /** Optional. Restricted only. True, if the user is allowed to send polls */
-  can_send_polls?: Boolean,
+  can_send_polls?: boolean,
   /**
   * Optional. Restricted only. True, if the user is allowed to send 
   * animations, games, stickers and use inline bots
   */
-  can_send_other_messages?: Boolean,
+  can_send_other_messages?: boolean,
   /**
   * Optional. Restricted only. True, if the user is allowed to add web page 
   * previews to their messages
   */
-  can_add_web_page_previews?: Boolean,
+  can_add_web_page_previews?: boolean,
   
 }
 
@@ -962,38 +962,38 @@ export type ChatPermissions = {
   * Optional. True, if the user is allowed to send text messages, contacts, 
   * locations and venues
   */
-  can_send_messages?: Boolean,
+  can_send_messages?: boolean,
   /**
   * Optional. True, if the user is allowed to send audios, documents, 
   * photos, videos, video notes and voice notes, implies can_send_messages
   */
-  can_send_media_messages?: Boolean,
+  can_send_media_messages?: boolean,
   /**
   * Optional. True, if the user is allowed to send polls, implies can_send_messages
   */
-  can_send_polls?: Boolean,
+  can_send_polls?: boolean,
   /**
   * Optional. True, if the user is allowed to send animations, games, 
   * stickers and use inline bots, implies can_send_media_messages
   */
-  can_send_other_messages?: Boolean,
+  can_send_other_messages?: boolean,
   /**
   * Optional. True, if the user is allowed to add web page previews to their 
   * messages, implies can_send_media_messages
   */
-  can_add_web_page_previews?: Boolean,
+  can_add_web_page_previews?: boolean,
   /**
   * Optional. True, if the user is allowed to change the chat title, photo 
   * and other settings. Ignored in public supergroups
   */
-  can_change_info?: Boolean,
+  can_change_info?: boolean,
   /** Optional. True, if the user is allowed to invite new users to the chat */
-  can_invite_users?: Boolean,
+  can_invite_users?: boolean,
   /**
   * Optional. True, if the user is allowed to pin messages. Ignored in 
   * public supergroups
   */
-  can_pin_messages?: Boolean,
+  can_pin_messages?: boolean,
   
 }
 
@@ -1006,12 +1006,12 @@ export type ResponseParameters = {
   * is smaller than 52 bits, so a signed 64 bit integer or double-precision 
   * float type are safe for storing this identifier.
   */
-  migrate_to_chat_id?: Number,
+  migrate_to_chat_id?: number,
   /**
   * Optional. In case of exceeding flood control, the number of seconds left 
   * to wait before the request can be repeated
   */
-  retry_after?: Number,
+  retry_after?: number,
   
 }
 
@@ -1019,14 +1019,11 @@ export type ResponseParameters = {
 * This object represents the content of a media message to be sent. It 
 * should be one of
 */
-export type InputMedia = {
-  
-}
-
+export type InputMedia = InputMediaAnimation|InputMediaDocument|InputMediaAudio|InputMediaPhoto|InputMediaVideo
 /** Represents a photo to be sent. */
 export type InputMediaPhoto = {
   /** Type of the result, must be photo */
-  type: String,
+  type: string,
   /**
   * File to send. Pass a file_id to send a file that exists on the Telegram 
   * servers (recommended), pass an HTTP URL for Telegram to get a file from 
@@ -1034,21 +1031,21 @@ export type InputMediaPhoto = {
   * using multipart/form-data under <file_attach_name> name. More info on 
   * Sending Files »
   */
-  media: String,
+  media: string,
   /** Optional. Caption of the photo to be sent, 0-1024 characters */
-  caption?: String,
+  caption?: string,
   /**
   * Optional. Send Markdown or HTML, if you want Telegram apps to show bold, 
   * italic, fixed-width text or inline URLs in the media caption.
   */
-  parse_mode?: String,
+  parse_mode?: string,
   
 }
 
 /** Represents a video to be sent. */
 export type InputMediaVideo = {
   /** Type of the result, must be video */
-  type: String,
+  type: string,
   /**
   * File to send. Pass a file_id to send a file that exists on the Telegram 
   * servers (recommended), pass an HTTP URL for Telegram to get a file from 
@@ -1056,7 +1053,7 @@ export type InputMediaVideo = {
   * using multipart/form-data under <file_attach_name> name. More info on 
   * Sending Files »
   */
-  media: String,
+  media: string,
   /**
   * Optional. Thumbnail of the file sent; can be ignored if thumbnail 
   * generation for the file is supported server-side. The thumbnail should 
@@ -1067,22 +1064,22 @@ export type InputMediaVideo = {
   * thumbnail was uploaded using multipart/form-data under 
   * <file_attach_name>. More info on Sending Files »
   */
-  thumb?: InputFile|String,
+  thumb?: InputFile|string,
   /** Optional. Caption of the video to be sent, 0-1024 characters */
-  caption?: String,
+  caption?: string,
   /**
   * Optional. Send Markdown or HTML, if you want Telegram apps to show bold, 
   * italic, fixed-width text or inline URLs in the media caption.
   */
-  parse_mode?: String,
+  parse_mode?: string,
   /** Optional. Video width */
-  width?: Number,
+  width?: number,
   /** Optional. Video height */
-  height?: Number,
+  height?: number,
   /** Optional. Video duration */
-  duration?: Number,
+  duration?: number,
   /** Optional. Pass True, if the uploaded video is suitable for streaming */
-  supports_streaming?: Boolean,
+  supports_streaming?: boolean,
   
 }
 
@@ -1092,7 +1089,7 @@ export type InputMediaVideo = {
 */
 export type InputMediaAnimation = {
   /** Type of the result, must be animation */
-  type: String,
+  type: string,
   /**
   * File to send. Pass a file_id to send a file that exists on the Telegram 
   * servers (recommended), pass an HTTP URL for Telegram to get a file from 
@@ -1100,7 +1097,7 @@ export type InputMediaAnimation = {
   * using multipart/form-data under <file_attach_name> name. More info on 
   * Sending Files »
   */
-  media: String,
+  media: string,
   /**
   * Optional. Thumbnail of the file sent; can be ignored if thumbnail 
   * generation for the file is supported server-side. The thumbnail should 
@@ -1111,27 +1108,27 @@ export type InputMediaAnimation = {
   * thumbnail was uploaded using multipart/form-data under 
   * <file_attach_name>. More info on Sending Files »
   */
-  thumb?: InputFile|String,
+  thumb?: InputFile|string,
   /** Optional. Caption of the animation to be sent, 0-1024 characters */
-  caption?: String,
+  caption?: string,
   /**
   * Optional. Send Markdown or HTML, if you want Telegram apps to show bold, 
   * italic, fixed-width text or inline URLs in the media caption.
   */
-  parse_mode?: String,
+  parse_mode?: string,
   /** Optional. Animation width */
-  width?: Number,
+  width?: number,
   /** Optional. Animation height */
-  height?: Number,
+  height?: number,
   /** Optional. Animation duration */
-  duration?: Number,
+  duration?: number,
   
 }
 
 /** Represents an audio file to be treated as music to be sent. */
 export type InputMediaAudio = {
   /** Type of the result, must be audio */
-  type: String,
+  type: string,
   /**
   * File to send. Pass a file_id to send a file that exists on the Telegram 
   * servers (recommended), pass an HTTP URL for Telegram to get a file from 
@@ -1139,7 +1136,7 @@ export type InputMediaAudio = {
   * using multipart/form-data under <file_attach_name> name. More info on 
   * Sending Files »
   */
-  media: String,
+  media: string,
   /**
   * Optional. Thumbnail of the file sent; can be ignored if thumbnail 
   * generation for the file is supported server-side. The thumbnail should 
@@ -1150,27 +1147,27 @@ export type InputMediaAudio = {
   * thumbnail was uploaded using multipart/form-data under 
   * <file_attach_name>. More info on Sending Files »
   */
-  thumb?: InputFile|String,
+  thumb?: InputFile|string,
   /** Optional. Caption of the audio to be sent, 0-1024 characters */
-  caption?: String,
+  caption?: string,
   /**
   * Optional. Send Markdown or HTML, if you want Telegram apps to show bold, 
   * italic, fixed-width text or inline URLs in the media caption.
   */
-  parse_mode?: String,
+  parse_mode?: string,
   /** Optional. Duration of the audio in seconds */
-  duration?: Number,
+  duration?: number,
   /** Optional. Performer of the audio */
-  performer?: String,
+  performer?: string,
   /** Optional. Title of the audio */
-  title?: String,
+  title?: string,
   
 }
 
 /** Represents a general file to be sent. */
 export type InputMediaDocument = {
   /** Type of the result, must be document */
-  type: String,
+  type: string,
   /**
   * File to send. Pass a file_id to send a file that exists on the Telegram 
   * servers (recommended), pass an HTTP URL for Telegram to get a file from 
@@ -1178,7 +1175,7 @@ export type InputMediaDocument = {
   * using multipart/form-data under <file_attach_name> name. More info on 
   * Sending Files »
   */
-  media: String,
+  media: string,
   /**
   * Optional. Thumbnail of the file sent; can be ignored if thumbnail 
   * generation for the file is supported server-side. The thumbnail should 
@@ -1189,14 +1186,14 @@ export type InputMediaDocument = {
   * thumbnail was uploaded using multipart/form-data under 
   * <file_attach_name>. More info on Sending Files »
   */
-  thumb?: InputFile|String,
+  thumb?: InputFile|string,
   /** Optional. Caption of the document to be sent, 0-1024 characters */
-  caption?: String,
+  caption?: string,
   /**
   * Optional. Send Markdown or HTML, if you want Telegram apps to show bold, 
   * italic, fixed-width text or inline URLs in the media caption.
   */
-  parse_mode?: String,
+  parse_mode?: string,
   
 }
 
@@ -1205,45 +1202,42 @@ export type InputMediaDocument = {
 * posted using multipart/form-data in the usual way that files are 
 * uploaded via the browser.
 */
-export type InputFile = {
-  
-}
-
+export type InputFile = any
 /** This object represents a sticker. */
 export type Sticker = {
   /** Identifier for this file */
-  file_id: String,
+  file_id: string,
   /** Sticker width */
-  width: Number,
+  width: number,
   /** Sticker height */
-  height: Number,
+  height: number,
   /** True, if the sticker is animated */
-  is_animated: Boolean,
+  is_animated: boolean,
   /** Optional. Sticker thumbnail in the .webp or .jpg format */
   thumb?: PhotoSize,
   /** Optional. Emoji associated with the sticker */
-  emoji?: String,
+  emoji?: string,
   /** Optional. Name of the sticker set to which the sticker belongs */
-  set_name?: String,
+  set_name?: string,
   /**
   * Optional. For mask stickers, the position where the mask should be placed
   */
   mask_position?: MaskPosition,
   /** Optional. File size */
-  file_size?: Number,
+  file_size?: number,
   
 }
 
 /** This object represents a sticker set. */
 export type StickerSet = {
   /** Sticker set name */
-  name: String,
+  name: string,
   /** Sticker set title */
-  title: String,
+  title: string,
   /** True, if the sticker set contains animated stickers */
-  is_animated: Boolean,
+  is_animated: boolean,
   /** True, if the sticker set contains masks */
-  contains_masks: Boolean,
+  contains_masks: boolean,
   /** List of all set stickers */
   stickers: Array<Sticker>,
   
@@ -1258,21 +1252,21 @@ export type MaskPosition = {
   * The part of the face relative to which the mask should be placed. One of 
   * “forehead”, “eyes”, “mouth”, or “chin”.
   */
-  point: String,
+  point: string,
   /**
   * Shift by X-axis measured in widths of the mask scaled to the face size, 
   * from left to right. For example, choosing -1.0 will place mask just to 
   * the left of the default mask position.
   */
-  x_shift: Number,
+  x_shift: number,
   /**
   * Shift by Y-axis measured in heights of the mask scaled to the face size, 
   * from top to bottom. For example, 1.0 will place the mask just below the 
   * default mask position.
   */
-  y_shift: Number,
+  y_shift: number,
   /** Mask scaling coefficient. For example, 2.0 means double size. */
-  scale: Number,
+  scale: number,
   
 }
 
@@ -1282,15 +1276,15 @@ export type MaskPosition = {
 */
 export type InlineQuery = {
   /** Unique identifier for this query */
-  id: String,
+  id: string,
   /** Sender */
   from: User,
   /** Optional. Sender location, only for bots that request user location */
   location?: Location,
   /** Text of the query (up to 512 characters) */
-  query: String,
+  query: string,
   /** Offset of the results to be returned, can be controlled by the bot */
-  offset: String,
+  offset: string,
   
 }
 
@@ -1298,36 +1292,33 @@ export type InlineQuery = {
 * This object represents one result of an inline query. Telegram clients 
 * currently support results of the following 20 types:
 */
-export type InlineQueryResult = {
-  
-}
-
+export type InlineQueryResult = InlineQueryResultCachedAudio|InlineQueryResultCachedDocument|InlineQueryResultCachedGif|InlineQueryResultCachedMpeg4Gif|InlineQueryResultCachedPhoto|InlineQueryResultCachedSticker|InlineQueryResultCachedVideo|InlineQueryResultCachedVoice|InlineQueryResultArticle|InlineQueryResultAudio|InlineQueryResultContact|InlineQueryResultGame|InlineQueryResultDocument|InlineQueryResultGif|InlineQueryResultLocation|InlineQueryResultMpeg4Gif|InlineQueryResultPhoto|InlineQueryResultVenue|InlineQueryResultVideo|InlineQueryResultVoice
 /** Represents a link to an article or web page. */
 export type InlineQueryResultArticle = {
   /** Type of the result, must be article */
-  type: String,
+  type: string,
   /** Unique identifier for this result, 1-64 Bytes */
-  id: String,
+  id: string,
   /** Title of the result */
-  title: String,
+  title: string,
   /** Content of the message to be sent */
   input_message_content: InputMessageContent,
   /** Optional. Inline keyboard attached to the message */
   reply_markup?: InlineKeyboardMarkup,
   /** Optional. URL of the result */
-  url?: String,
+  url?: string,
   /**
   * Optional. Pass True, if you don't want the URL to be shown in the message
   */
-  hide_url?: Boolean,
+  hide_url?: boolean,
   /** Optional. Short description of the result */
-  description?: String,
+  description?: string,
   /** Optional. Url of the thumbnail for the result */
-  thumb_url?: String,
+  thumb_url?: string,
   /** Optional. Thumbnail width */
-  thumb_width?: Number,
+  thumb_width?: number,
   /** Optional. Thumbnail height */
-  thumb_height?: Number,
+  thumb_height?: number,
   
 }
 
@@ -1339,31 +1330,31 @@ export type InlineQueryResultArticle = {
 */
 export type InlineQueryResultPhoto = {
   /** Type of the result, must be photo */
-  type: String,
+  type: string,
   /** Unique identifier for this result, 1-64 bytes */
-  id: String,
+  id: string,
   /**
   * A valid URL of the photo. Photo must be in jpeg format. Photo size must 
   * not exceed 5MB
   */
-  photo_url: String,
+  photo_url: string,
   /** URL of the thumbnail for the photo */
-  thumb_url: String,
+  thumb_url: string,
   /** Optional. Width of the photo */
-  photo_width?: Number,
+  photo_width?: number,
   /** Optional. Height of the photo */
-  photo_height?: Number,
+  photo_height?: number,
   /** Optional. Title for the result */
-  title?: String,
+  title?: string,
   /** Optional. Short description of the result */
-  description?: String,
+  description?: string,
   /** Optional. Caption of the photo to be sent, 0-1024 characters */
-  caption?: String,
+  caption?: string,
   /**
   * Optional. Send Markdown or HTML, if you want Telegram apps to show bold, 
   * italic, fixed-width text or inline URLs in the media caption.
   */
-  parse_mode?: String,
+  parse_mode?: string,
   /** Optional. Inline keyboard attached to the message */
   reply_markup?: InlineKeyboardMarkup,
   /** Optional. Content of the message to be sent instead of the photo */
@@ -1379,32 +1370,71 @@ export type InlineQueryResultPhoto = {
 */
 export type InlineQueryResultGif = {
   /** Type of the result, must be gif */
-  type: String,
+  type: string,
   /** Unique identifier for this result, 1-64 bytes */
-  id: String,
+  id: string,
   /** A valid URL for the GIF file. File size must not exceed 1MB */
-  gif_url: String,
+  gif_url: string,
   /** Optional. Width of the GIF */
-  gif_width?: Number,
+  gif_width?: number,
   /** Optional. Height of the GIF */
-  gif_height?: Number,
+  gif_height?: number,
   /** Optional. Duration of the GIF */
-  gif_duration?: Number,
+  gif_duration?: number,
   /** URL of the static thumbnail for the result (jpeg or gif) */
-  thumb_url: String,
+  thumb_url: string,
   /** Optional. Title for the result */
-  title?: String,
+  title?: string,
   /** Optional. Caption of the GIF file to be sent, 0-1024 characters */
-  caption?: String,
+  caption?: string,
   /**
   * Optional. Send Markdown or HTML, if you want Telegram apps to show bold, 
   * italic, fixed-width text or inline URLs in the media caption.
   */
-  parse_mode?: String,
+  parse_mode?: string,
   /** Optional. Inline keyboard attached to the message */
   reply_markup?: InlineKeyboardMarkup,
   /**
   * Optional. Content of the message to be sent instead of the GIF animation
+  */
+  input_message_content?: InputMessageContent,
+  
+}
+
+/**
+* Represents a link to a video animation (H.264/MPEG-4 AVC video without 
+* sound). By default, this animated MPEG-4 file will be sent by the user 
+* with optional caption. Alternatively, you can use input_message_content 
+* to send a message with the specified content instead of the animation.
+*/
+export type InlineQueryResultMpeg4Gif = {
+  /** Type of the result, must be mpeg4_gif */
+  type: string,
+  /** Unique identifier for this result, 1-64 bytes */
+  id: string,
+  /** A valid URL for the MP4 file. File size must not exceed 1MB */
+  mpeg4_url: string,
+  /** Optional. Video width */
+  mpeg4_width?: number,
+  /** Optional. Video height */
+  mpeg4_height?: number,
+  /** Optional. Video duration */
+  mpeg4_duration?: number,
+  /** URL of the static thumbnail (jpeg or gif) for the result */
+  thumb_url: string,
+  /** Optional. Title for the result */
+  title?: string,
+  /** Optional. Caption of the MPEG-4 file to be sent, 0-1024 characters */
+  caption?: string,
+  /**
+  * Optional. Send Markdown or HTML, if you want Telegram apps to show bold, 
+  * italic, fixed-width text or inline URLs in the media caption.
+  */
+  parse_mode?: string,
+  /** Optional. Inline keyboard attached to the message */
+  reply_markup?: InlineKeyboardMarkup,
+  /**
+  * Optional. Content of the message to be sent instead of the video animation
   */
   input_message_content?: InputMessageContent,
   
@@ -1418,32 +1448,32 @@ export type InlineQueryResultGif = {
 */
 export type InlineQueryResultVideo = {
   /** Type of the result, must be video */
-  type: String,
+  type: string,
   /** Unique identifier for this result, 1-64 bytes */
-  id: String,
+  id: string,
   /** A valid URL for the embedded video player or video file */
-  video_url: String,
+  video_url: string,
   /** Mime type of the content of video url, “text/html” or “video/mp4” */
-  mime_type: String,
+  mime_type: string,
   /** URL of the thumbnail (jpeg only) for the video */
-  thumb_url: String,
+  thumb_url: string,
   /** Title for the result */
-  title: String,
+  title: string,
   /** Optional. Caption of the video to be sent, 0-1024 characters */
-  caption?: String,
+  caption?: string,
   /**
   * Optional. Send Markdown or HTML, if you want Telegram apps to show bold, 
   * italic, fixed-width text or inline URLs in the media caption.
   */
-  parse_mode?: String,
+  parse_mode?: string,
   /** Optional. Video width */
-  video_width?: Number,
+  video_width?: number,
   /** Optional. Video height */
-  video_height?: Number,
+  video_height?: number,
   /** Optional. Video duration in seconds */
-  video_duration?: Number,
+  video_duration?: number,
   /** Optional. Short description of the result */
-  description?: String,
+  description?: string,
   /** Optional. Inline keyboard attached to the message */
   reply_markup?: InlineKeyboardMarkup,
   /**
@@ -1462,24 +1492,24 @@ export type InlineQueryResultVideo = {
 */
 export type InlineQueryResultAudio = {
   /** Type of the result, must be audio */
-  type: String,
+  type: string,
   /** Unique identifier for this result, 1-64 bytes */
-  id: String,
+  id: string,
   /** A valid URL for the audio file */
-  audio_url: String,
+  audio_url: string,
   /** Title */
-  title: String,
+  title: string,
   /** Optional. Caption, 0-1024 characters */
-  caption?: String,
+  caption?: string,
   /**
   * Optional. Send Markdown or HTML, if you want Telegram apps to show bold, 
   * italic, fixed-width text or inline URLs in the media caption.
   */
-  parse_mode?: String,
+  parse_mode?: string,
   /** Optional. Performer */
-  performer?: String,
+  performer?: string,
   /** Optional. Audio duration in seconds */
-  audio_duration?: Number,
+  audio_duration?: number,
   /** Optional. Inline keyboard attached to the message */
   reply_markup?: InlineKeyboardMarkup,
   /** Optional. Content of the message to be sent instead of the audio */
@@ -1495,22 +1525,22 @@ export type InlineQueryResultAudio = {
 */
 export type InlineQueryResultVoice = {
   /** Type of the result, must be voice */
-  type: String,
+  type: string,
   /** Unique identifier for this result, 1-64 bytes */
-  id: String,
+  id: string,
   /** A valid URL for the voice recording */
-  voice_url: String,
+  voice_url: string,
   /** Recording title */
-  title: String,
+  title: string,
   /** Optional. Caption, 0-1024 characters */
-  caption?: String,
+  caption?: string,
   /**
   * Optional. Send Markdown or HTML, if you want Telegram apps to show bold, 
   * italic, fixed-width text or inline URLs in the media caption.
   */
-  parse_mode?: String,
+  parse_mode?: string,
   /** Optional. Recording duration in seconds */
-  voice_duration?: Number,
+  voice_duration?: number,
   /** Optional. Inline keyboard attached to the message */
   reply_markup?: InlineKeyboardMarkup,
   /**
@@ -1529,36 +1559,36 @@ export type InlineQueryResultVoice = {
 */
 export type InlineQueryResultDocument = {
   /** Type of the result, must be document */
-  type: String,
+  type: string,
   /** Unique identifier for this result, 1-64 bytes */
-  id: String,
+  id: string,
   /** Title for the result */
-  title: String,
+  title: string,
   /** Optional. Caption of the document to be sent, 0-1024 characters */
-  caption?: String,
+  caption?: string,
   /**
   * Optional. Send Markdown or HTML, if you want Telegram apps to show bold, 
   * italic, fixed-width text or inline URLs in the media caption.
   */
-  parse_mode?: String,
+  parse_mode?: string,
   /** A valid URL for the file */
-  document_url: String,
+  document_url: string,
   /**
   * Mime type of the content of the file, either “application/pdf” or “application/zip”
   */
-  mime_type: String,
+  mime_type: string,
   /** Optional. Short description of the result */
-  description?: String,
+  description?: string,
   /** Optional. Inline keyboard attached to the message */
   reply_markup?: InlineKeyboardMarkup,
   /** Optional. Content of the message to be sent instead of the file */
   input_message_content?: InputMessageContent,
   /** Optional. URL of the thumbnail (jpeg only) for the file */
-  thumb_url?: String,
+  thumb_url?: string,
   /** Optional. Thumbnail width */
-  thumb_width?: Number,
+  thumb_width?: number,
   /** Optional. Thumbnail height */
-  thumb_height?: Number,
+  thumb_height?: number,
   
 }
 
@@ -1569,30 +1599,30 @@ export type InlineQueryResultDocument = {
 */
 export type InlineQueryResultLocation = {
   /** Type of the result, must be location */
-  type: String,
+  type: string,
   /** Unique identifier for this result, 1-64 Bytes */
-  id: String,
+  id: string,
   /** Location latitude in degrees */
-  latitude: Number,
+  latitude: number,
   /** Location longitude in degrees */
-  longitude: Number,
+  longitude: number,
   /** Location title */
-  title: String,
+  title: string,
   /**
   * Optional. Period in seconds for which the location can be updated, 
   * should be between 60 and 86400.
   */
-  live_period?: Number,
+  live_period?: number,
   /** Optional. Inline keyboard attached to the message */
   reply_markup?: InlineKeyboardMarkup,
   /** Optional. Content of the message to be sent instead of the location */
   input_message_content?: InputMessageContent,
   /** Optional. Url of the thumbnail for the result */
-  thumb_url?: String,
+  thumb_url?: string,
   /** Optional. Thumbnail width */
-  thumb_width?: Number,
+  thumb_width?: number,
   /** Optional. Thumbnail height */
-  thumb_height?: Number,
+  thumb_height?: number,
   
 }
 
@@ -1603,34 +1633,34 @@ export type InlineQueryResultLocation = {
 */
 export type InlineQueryResultVenue = {
   /** Type of the result, must be venue */
-  type: String,
+  type: string,
   /** Unique identifier for this result, 1-64 Bytes */
-  id: String,
+  id: string,
   /** Latitude of the venue location in degrees */
-  latitude: Number,
+  latitude: number,
   /** Longitude of the venue location in degrees */
-  longitude: Number,
+  longitude: number,
   /** Title of the venue */
-  title: String,
+  title: string,
   /** Address of the venue */
-  address: String,
+  address: string,
   /** Optional. Foursquare identifier of the venue if known */
-  foursquare_id?: String,
+  foursquare_id?: string,
   /**
   * Optional. Foursquare type of the venue, if known. (For example, 
   * “arts_entertainment/default”, “arts_entertainment/aquarium” or “food/icecream”.)
   */
-  foursquare_type?: String,
+  foursquare_type?: string,
   /** Optional. Inline keyboard attached to the message */
   reply_markup?: InlineKeyboardMarkup,
   /** Optional. Content of the message to be sent instead of the venue */
   input_message_content?: InputMessageContent,
   /** Optional. Url of the thumbnail for the result */
-  thumb_url?: String,
+  thumb_url?: string,
   /** Optional. Thumbnail width */
-  thumb_width?: Number,
+  thumb_width?: number,
   /** Optional. Thumbnail height */
-  thumb_height?: Number,
+  thumb_height?: number,
   
 }
 
@@ -1641,41 +1671,41 @@ export type InlineQueryResultVenue = {
 */
 export type InlineQueryResultContact = {
   /** Type of the result, must be contact */
-  type: String,
+  type: string,
   /** Unique identifier for this result, 1-64 Bytes */
-  id: String,
+  id: string,
   /** Contact's phone number */
-  phone_number: String,
+  phone_number: string,
   /** Contact's first name */
-  first_name: String,
+  first_name: string,
   /** Optional. Contact's last name */
-  last_name?: String,
+  last_name?: string,
   /**
   * Optional. Additional data about the contact in the form of a vCard, 
   * 0-2048 bytes
   */
-  vcard?: String,
+  vcard?: string,
   /** Optional. Inline keyboard attached to the message */
   reply_markup?: InlineKeyboardMarkup,
   /** Optional. Content of the message to be sent instead of the contact */
   input_message_content?: InputMessageContent,
   /** Optional. Url of the thumbnail for the result */
-  thumb_url?: String,
+  thumb_url?: string,
   /** Optional. Thumbnail width */
-  thumb_width?: Number,
+  thumb_width?: number,
   /** Optional. Thumbnail height */
-  thumb_height?: Number,
+  thumb_height?: number,
   
 }
 
 /** Represents a Game. */
 export type InlineQueryResultGame = {
   /** Type of the result, must be game */
-  type: String,
+  type: string,
   /** Unique identifier for this result, 1-64 bytes */
-  id: String,
+  id: string,
   /** Short name of the game */
-  game_short_name: String,
+  game_short_name: string,
   /** Optional. Inline keyboard attached to the message */
   reply_markup?: InlineKeyboardMarkup,
   
@@ -1689,22 +1719,22 @@ export type InlineQueryResultGame = {
 */
 export type InlineQueryResultCachedPhoto = {
   /** Type of the result, must be photo */
-  type: String,
+  type: string,
   /** Unique identifier for this result, 1-64 bytes */
-  id: String,
+  id: string,
   /** A valid file identifier of the photo */
-  photo_file_id: String,
+  photo_file_id: string,
   /** Optional. Title for the result */
-  title?: String,
+  title?: string,
   /** Optional. Short description of the result */
-  description?: String,
+  description?: string,
   /** Optional. Caption of the photo to be sent, 0-1024 characters */
-  caption?: String,
+  caption?: string,
   /**
   * Optional. Send Markdown or HTML, if you want Telegram apps to show bold, 
   * italic, fixed-width text or inline URLs in the media caption.
   */
-  parse_mode?: String,
+  parse_mode?: string,
   /** Optional. Inline keyboard attached to the message */
   reply_markup?: InlineKeyboardMarkup,
   /** Optional. Content of the message to be sent instead of the photo */
@@ -1721,24 +1751,56 @@ export type InlineQueryResultCachedPhoto = {
 */
 export type InlineQueryResultCachedGif = {
   /** Type of the result, must be gif */
-  type: String,
+  type: string,
   /** Unique identifier for this result, 1-64 bytes */
-  id: String,
+  id: string,
   /** A valid file identifier for the GIF file */
-  gif_file_id: String,
+  gif_file_id: string,
   /** Optional. Title for the result */
-  title?: String,
+  title?: string,
   /** Optional. Caption of the GIF file to be sent, 0-1024 characters */
-  caption?: String,
+  caption?: string,
   /**
   * Optional. Send Markdown or HTML, if you want Telegram apps to show bold, 
   * italic, fixed-width text or inline URLs in the media caption.
   */
-  parse_mode?: String,
+  parse_mode?: string,
   /** Optional. Inline keyboard attached to the message */
   reply_markup?: InlineKeyboardMarkup,
   /**
   * Optional. Content of the message to be sent instead of the GIF animation
+  */
+  input_message_content?: InputMessageContent,
+  
+}
+
+/**
+* Represents a link to a video animation (H.264/MPEG-4 AVC video without 
+* sound) stored on the Telegram servers. By default, this animated MPEG-4 
+* file will be sent by the user with an optional caption. Alternatively, 
+* you can use input_message_content to send a message with the specified 
+* content instead of the animation.
+*/
+export type InlineQueryResultCachedMpeg4Gif = {
+  /** Type of the result, must be mpeg4_gif */
+  type: string,
+  /** Unique identifier for this result, 1-64 bytes */
+  id: string,
+  /** A valid file identifier for the MP4 file */
+  mpeg4_file_id: string,
+  /** Optional. Title for the result */
+  title?: string,
+  /** Optional. Caption of the MPEG-4 file to be sent, 0-1024 characters */
+  caption?: string,
+  /**
+  * Optional. Send Markdown or HTML, if you want Telegram apps to show bold, 
+  * italic, fixed-width text or inline URLs in the media caption.
+  */
+  parse_mode?: string,
+  /** Optional. Inline keyboard attached to the message */
+  reply_markup?: InlineKeyboardMarkup,
+  /**
+  * Optional. Content of the message to be sent instead of the video animation
   */
   input_message_content?: InputMessageContent,
   
@@ -1752,11 +1814,11 @@ export type InlineQueryResultCachedGif = {
 */
 export type InlineQueryResultCachedSticker = {
   /** Type of the result, must be sticker */
-  type: String,
+  type: string,
   /** Unique identifier for this result, 1-64 bytes */
-  id: String,
+  id: string,
   /** A valid file identifier of the sticker */
-  sticker_file_id: String,
+  sticker_file_id: string,
   /** Optional. Inline keyboard attached to the message */
   reply_markup?: InlineKeyboardMarkup,
   /** Optional. Content of the message to be sent instead of the sticker */
@@ -1772,22 +1834,22 @@ export type InlineQueryResultCachedSticker = {
 */
 export type InlineQueryResultCachedDocument = {
   /** Type of the result, must be document */
-  type: String,
+  type: string,
   /** Unique identifier for this result, 1-64 bytes */
-  id: String,
+  id: string,
   /** Title for the result */
-  title: String,
+  title: string,
   /** A valid file identifier for the file */
-  document_file_id: String,
+  document_file_id: string,
   /** Optional. Short description of the result */
-  description?: String,
+  description?: string,
   /** Optional. Caption of the document to be sent, 0-1024 characters */
-  caption?: String,
+  caption?: string,
   /**
   * Optional. Send Markdown or HTML, if you want Telegram apps to show bold, 
   * italic, fixed-width text or inline URLs in the media caption.
   */
-  parse_mode?: String,
+  parse_mode?: string,
   /** Optional. Inline keyboard attached to the message */
   reply_markup?: InlineKeyboardMarkup,
   /** Optional. Content of the message to be sent instead of the file */
@@ -1803,22 +1865,22 @@ export type InlineQueryResultCachedDocument = {
 */
 export type InlineQueryResultCachedVideo = {
   /** Type of the result, must be video */
-  type: String,
+  type: string,
   /** Unique identifier for this result, 1-64 bytes */
-  id: String,
+  id: string,
   /** A valid file identifier for the video file */
-  video_file_id: String,
+  video_file_id: string,
   /** Title for the result */
-  title: String,
+  title: string,
   /** Optional. Short description of the result */
-  description?: String,
+  description?: string,
   /** Optional. Caption of the video to be sent, 0-1024 characters */
-  caption?: String,
+  caption?: string,
   /**
   * Optional. Send Markdown or HTML, if you want Telegram apps to show bold, 
   * italic, fixed-width text or inline URLs in the media caption.
   */
-  parse_mode?: String,
+  parse_mode?: string,
   /** Optional. Inline keyboard attached to the message */
   reply_markup?: InlineKeyboardMarkup,
   /** Optional. Content of the message to be sent instead of the video */
@@ -1834,20 +1896,20 @@ export type InlineQueryResultCachedVideo = {
 */
 export type InlineQueryResultCachedVoice = {
   /** Type of the result, must be voice */
-  type: String,
+  type: string,
   /** Unique identifier for this result, 1-64 bytes */
-  id: String,
+  id: string,
   /** A valid file identifier for the voice message */
-  voice_file_id: String,
+  voice_file_id: string,
   /** Voice message title */
-  title: String,
+  title: string,
   /** Optional. Caption, 0-1024 characters */
-  caption?: String,
+  caption?: string,
   /**
   * Optional. Send Markdown or HTML, if you want Telegram apps to show bold, 
   * italic, fixed-width text or inline URLs in the media caption.
   */
-  parse_mode?: String,
+  parse_mode?: string,
   /** Optional. Inline keyboard attached to the message */
   reply_markup?: InlineKeyboardMarkup,
   /**
@@ -1865,18 +1927,18 @@ export type InlineQueryResultCachedVoice = {
 */
 export type InlineQueryResultCachedAudio = {
   /** Type of the result, must be audio */
-  type: String,
+  type: string,
   /** Unique identifier for this result, 1-64 bytes */
-  id: String,
+  id: string,
   /** A valid file identifier for the audio file */
-  audio_file_id: String,
+  audio_file_id: string,
   /** Optional. Caption, 0-1024 characters */
-  caption?: String,
+  caption?: string,
   /**
   * Optional. Send Markdown or HTML, if you want Telegram apps to show bold, 
   * italic, fixed-width text or inline URLs in the media caption.
   */
-  parse_mode?: String,
+  parse_mode?: string,
   /** Optional. Inline keyboard attached to the message */
   reply_markup?: InlineKeyboardMarkup,
   /** Optional. Content of the message to be sent instead of the audio */
@@ -1888,24 +1950,21 @@ export type InlineQueryResultCachedAudio = {
 * This object represents the content of a message to be sent as a result 
 * of an inline query. Telegram clients currently support the following 4 types:
 */
-export type InputMessageContent = {
-  
-}
-
+export type InputMessageContent = InputTextMessageContent|InputLocationMessageContent|InputVenueMessageContent|InputContactMessageContent
 /**
 * Represents the content of a text message to be sent as the result of an 
 * inline query.
 */
 export type InputTextMessageContent = {
   /** Text of the message to be sent, 1-4096 characters */
-  message_text: String,
+  message_text: string,
   /**
   * Optional. Send Markdown or HTML, if you want Telegram apps to show bold, 
   * italic, fixed-width text or inline URLs in your bot's message.
   */
-  parse_mode?: String,
+  parse_mode?: string,
   /** Optional. Disables link previews for links in the sent message */
-  disable_web_page_preview?: Boolean,
+  disable_web_page_preview?: boolean,
   
 }
 
@@ -1915,14 +1974,14 @@ export type InputTextMessageContent = {
 */
 export type InputLocationMessageContent = {
   /** Latitude of the location in degrees */
-  latitude: Number,
+  latitude: number,
   /** Longitude of the location in degrees */
-  longitude: Number,
+  longitude: number,
   /**
   * Optional. Period in seconds for which the location can be updated, 
   * should be between 60 and 86400.
   */
-  live_period?: Number,
+  live_period?: number,
   
 }
 
@@ -1932,20 +1991,20 @@ export type InputLocationMessageContent = {
 */
 export type InputVenueMessageContent = {
   /** Latitude of the venue in degrees */
-  latitude: Number,
+  latitude: number,
   /** Longitude of the venue in degrees */
-  longitude: Number,
+  longitude: number,
   /** Name of the venue */
-  title: String,
+  title: string,
   /** Address of the venue */
-  address: String,
+  address: string,
   /** Optional. Foursquare identifier of the venue, if known */
-  foursquare_id?: String,
+  foursquare_id?: string,
   /**
   * Optional. Foursquare type of the venue, if known. (For example, 
   * “arts_entertainment/default”, “arts_entertainment/aquarium” or “food/icecream”.)
   */
-  foursquare_type?: String,
+  foursquare_type?: string,
   
 }
 
@@ -1955,16 +2014,16 @@ export type InputVenueMessageContent = {
 */
 export type InputContactMessageContent = {
   /** Contact's phone number */
-  phone_number: String,
+  phone_number: string,
   /** Contact's first name */
-  first_name: String,
+  first_name: string,
   /** Optional. Contact's last name */
-  last_name?: String,
+  last_name?: string,
   /**
   * Optional. Additional data about the contact in the form of a vCard, 
   * 0-2048 bytes
   */
-  vcard?: String,
+  vcard?: string,
   
 }
 
@@ -1974,7 +2033,7 @@ export type InputContactMessageContent = {
 */
 export type ChosenInlineResult = {
   /** The unique identifier for the result that was chosen */
-  result_id: String,
+  result_id: string,
   /** The user that chose the result */
   from: User,
   /** Optional. Sender location, only for bots that require user location */
@@ -1984,73 +2043,73 @@ export type ChosenInlineResult = {
   * is an inline keyboard attached to the message. Will be also received in 
   * callback queries and can be used to edit the message.
   */
-  inline_message_id?: String,
+  inline_message_id?: string,
   /** The query that was used to obtain the result */
-  query: String,
+  query: string,
   
 }
 
 /** This object represents a portion of the price for goods or services. */
 export type LabeledPrice = {
   /** Portion label */
-  label: String,
+  label: string,
   /**
   * Price of the product in the smallest units of the currency (integer, not 
   * float/double). For example, for a price of US$ 1.45 pass amount = 145. 
   * See the exp parameter in currencies.json, it shows the number of digits 
   * past the decimal point for each currency (2 for the majority of currencies).
   */
-  amount: Number,
+  amount: number,
   
 }
 
 /** This object contains basic information about an invoice. */
 export type Invoice = {
   /** Product name */
-  title: String,
+  title: string,
   /** Product description */
-  description: String,
+  description: string,
   /**
   * Unique bot deep-linking parameter that can be used to generate this invoice
   */
-  start_parameter: String,
+  start_parameter: string,
   /** Three-letter ISO 4217 currency code */
-  currency: String,
+  currency: string,
   /**
   * Total price in the smallest units of the currency (integer, not 
   * float/double). For example, for a price of US$ 1.45 pass amount = 145. 
   * See the exp parameter in currencies.json, it shows the number of digits 
   * past the decimal point for each currency (2 for the majority of currencies).
   */
-  total_amount: Number,
+  total_amount: number,
   
 }
 
 /** This object represents a shipping address. */
 export type ShippingAddress = {
   /** ISO 3166-1 alpha-2 country code */
-  country_code: String,
+  country_code: string,
   /** State, if applicable */
-  state: String,
+  state: string,
   /** City */
-  city: String,
+  city: string,
   /** First line for the address */
-  street_line1: String,
+  street_line1: string,
   /** Second line for the address */
-  street_line2: String,
+  street_line2: string,
   /** Address post code */
-  post_code: String,
+  post_code: string,
   
 }
 
 /** This object represents information about an order. */
 export type OrderInfo = {
   /** Optional. User name */
-  name?: String,
+  name?: string,
   /** Optional. User's phone number */
-  phone_number?: String,
+  phone_number?: string,
   /** Optional. User email */
-  email?: String,
+  email?: string,
   /** Optional. User shipping address */
   shipping_address?: ShippingAddress,
   
@@ -2059,9 +2118,9 @@ export type OrderInfo = {
 /** This object represents one shipping option. */
 export type ShippingOption = {
   /** Shipping option identifier */
-  id: String,
+  id: string,
   /** Option title */
-  title: String,
+  title: string,
   /** List of price portions */
   prices: Array<LabeledPrice>,
   
@@ -2070,35 +2129,35 @@ export type ShippingOption = {
 /** This object contains basic information about a successful payment. */
 export type SuccessfulPayment = {
   /** Three-letter ISO 4217 currency code */
-  currency: String,
+  currency: string,
   /**
   * Total price in the smallest units of the currency (integer, not 
   * float/double). For example, for a price of US$ 1.45 pass amount = 145. 
   * See the exp parameter in currencies.json, it shows the number of digits 
   * past the decimal point for each currency (2 for the majority of currencies).
   */
-  total_amount: Number,
+  total_amount: number,
   /** Bot specified invoice payload */
-  invoice_payload: String,
+  invoice_payload: string,
   /** Optional. Identifier of the shipping option chosen by the user */
-  shipping_option_id?: String,
+  shipping_option_id?: string,
   /** Optional. Order info provided by the user */
   order_info?: OrderInfo,
   /** Telegram payment identifier */
-  telegram_payment_charge_id: String,
+  telegram_payment_charge_id: string,
   /** Provider payment identifier */
-  provider_payment_charge_id: String,
+  provider_payment_charge_id: string,
   
 }
 
 /** This object contains information about an incoming shipping query. */
 export type ShippingQuery = {
   /** Unique query identifier */
-  id: String,
+  id: string,
   /** User who sent the query */
   from: User,
   /** Bot specified invoice payload */
-  invoice_payload: String,
+  invoice_payload: string,
   /** User specified shipping address */
   shipping_address: ShippingAddress,
   
@@ -2107,22 +2166,22 @@ export type ShippingQuery = {
 /** This object contains information about an incoming pre-checkout query. */
 export type PreCheckoutQuery = {
   /** Unique query identifier */
-  id: String,
+  id: string,
   /** User who sent the query */
   from: User,
   /** Three-letter ISO 4217 currency code */
-  currency: String,
+  currency: string,
   /**
   * Total price in the smallest units of the currency (integer, not 
   * float/double). For example, for a price of US$ 1.45 pass amount = 145. 
   * See the exp parameter in currencies.json, it shows the number of digits 
   * past the decimal point for each currency (2 for the majority of currencies).
   */
-  total_amount: Number,
+  total_amount: number,
   /** Bot specified invoice payload */
-  invoice_payload: String,
+  invoice_payload: string,
   /** Optional. Identifier of the shipping option chosen by the user */
-  shipping_option_id?: String,
+  shipping_option_id?: string,
   /** Optional. Order info provided by the user */
   order_info?: OrderInfo,
   
@@ -2150,11 +2209,11 @@ export type PassportData = {
 */
 export type PassportFile = {
   /** Identifier for this file */
-  file_id: String,
+  file_id: string,
   /** File size */
-  file_size: Number,
+  file_size: number,
   /** Unix time when the file was uploaded */
-  file_date: Number,
+  file_date: number,
   
 }
 
@@ -2169,23 +2228,23 @@ export type EncryptedPassportElement = {
   * “bank_statement”, “rental_agreement”, “passport_registration”, 
   * “temporary_registration”, “phone_number”, “email”.
   */
-  type: String,
+  type: string,
   /**
   * Optional. Base64-encoded encrypted Telegram Passport element data 
   * provided by the user, available for “personal_details”, “passport”, 
   * “driver_license”, “identity_card”, “internal_passport” and “address” 
   * types. Can be decrypted and verified using the accompanying EncryptedCredentials.
   */
-  data?: String,
+  data?: string,
   /**
   * Optional. User's verified phone number, available only for 
   * “phone_number” type
   */
-  phone_number?: String,
+  phone_number?: string,
   /**
   * Optional. User's verified email address, available only for “email” type
   */
-  email?: String,
+  email?: string,
   /**
   * Optional. Array of encrypted files with documents provided by the user, 
   * available for “utility_bill”, “bank_statement”, “rental_agreement”, 
@@ -2225,7 +2284,7 @@ export type EncryptedPassportElement = {
   /**
   * Base64-encoded element hash for using in PassportElementErrorUnspecified
   */
-  hash: String,
+  hash: string,
   
 }
 
@@ -2240,14 +2299,14 @@ export type EncryptedCredentials = {
   * payload, data hashes and secrets required for EncryptedPassportElement 
   * decryption and authentication
   */
-  data: String,
+  data: string,
   /** Base64-encoded data hash for data authentication */
-  hash: String,
+  hash: string,
   /**
   * Base64-encoded secret, encrypted with the bot's public RSA key, required 
   * for data decryption
   */
-  secret: String,
+  secret: string,
   
 }
 
@@ -2255,29 +2314,26 @@ export type EncryptedCredentials = {
 * This object represents an error in the Telegram Passport element which 
 * was submitted that should be resolved by the user. It should be one of:
 */
-export type PassportElementError = {
-  
-}
-
+export type PassportElementError = PassportElementErrorDataField|PassportElementErrorFrontSide|PassportElementErrorReverseSide|PassportElementErrorSelfie|PassportElementErrorFile|PassportElementErrorFiles|PassportElementErrorTranslationFile|PassportElementErrorTranslationFiles|PassportElementErrorUnspecified
 /**
 * Represents an issue in one of the data fields that was provided by the 
 * user. The error is considered resolved when the field's value changes.
 */
 export type PassportElementErrorDataField = {
   /** Error source, must be data */
-  source: String,
+  source: string,
   /**
   * The section of the user's Telegram Passport which has the error, one of 
   * “personal_details”, “passport”, “driver_license”, “identity_card”, 
   * “internal_passport”, “address”
   */
-  type: String,
+  type: string,
   /** Name of the data field which has the error */
-  field_name: String,
+  field_name: string,
   /** Base64-encoded data hash */
-  data_hash: String,
+  data_hash: string,
   /** Error message */
-  message: String,
+  message: string,
   
 }
 
@@ -2287,16 +2343,16 @@ export type PassportElementErrorDataField = {
 */
 export type PassportElementErrorFrontSide = {
   /** Error source, must be front_side */
-  source: String,
+  source: string,
   /**
   * The section of the user's Telegram Passport which has the issue, one of 
   * “passport”, “driver_license”, “identity_card”, “internal_passport”
   */
-  type: String,
+  type: string,
   /** Base64-encoded hash of the file with the front side of the document */
-  file_hash: String,
+  file_hash: string,
   /** Error message */
-  message: String,
+  message: string,
   
 }
 
@@ -2306,16 +2362,16 @@ export type PassportElementErrorFrontSide = {
 */
 export type PassportElementErrorReverseSide = {
   /** Error source, must be reverse_side */
-  source: String,
+  source: string,
   /**
   * The section of the user's Telegram Passport which has the issue, one of 
   * “driver_license”, “identity_card”
   */
-  type: String,
+  type: string,
   /** Base64-encoded hash of the file with the reverse side of the document */
-  file_hash: String,
+  file_hash: string,
   /** Error message */
-  message: String,
+  message: string,
   
 }
 
@@ -2325,16 +2381,16 @@ export type PassportElementErrorReverseSide = {
 */
 export type PassportElementErrorSelfie = {
   /** Error source, must be selfie */
-  source: String,
+  source: string,
   /**
   * The section of the user's Telegram Passport which has the issue, one of 
   * “passport”, “driver_license”, “identity_card”, “internal_passport”
   */
-  type: String,
+  type: string,
   /** Base64-encoded hash of the file with the selfie */
-  file_hash: String,
+  file_hash: string,
   /** Error message */
-  message: String,
+  message: string,
   
 }
 
@@ -2344,17 +2400,17 @@ export type PassportElementErrorSelfie = {
 */
 export type PassportElementErrorFile = {
   /** Error source, must be file */
-  source: String,
+  source: string,
   /**
   * The section of the user's Telegram Passport which has the issue, one of 
   * “utility_bill”, “bank_statement”, “rental_agreement”, 
   * “passport_registration”, “temporary_registration”
   */
-  type: String,
+  type: string,
   /** Base64-encoded file hash */
-  file_hash: String,
+  file_hash: string,
   /** Error message */
-  message: String,
+  message: string,
   
 }
 
@@ -2364,17 +2420,17 @@ export type PassportElementErrorFile = {
 */
 export type PassportElementErrorFiles = {
   /** Error source, must be files */
-  source: String,
+  source: string,
   /**
   * The section of the user's Telegram Passport which has the issue, one of 
   * “utility_bill”, “bank_statement”, “rental_agreement”, 
   * “passport_registration”, “temporary_registration”
   */
-  type: String,
+  type: string,
   /** List of base64-encoded file hashes */
-  file_hashes: Array<String>,
+  file_hashes: Array<string>,
   /** Error message */
-  message: String,
+  message: string,
   
 }
 
@@ -2385,18 +2441,18 @@ export type PassportElementErrorFiles = {
 */
 export type PassportElementErrorTranslationFile = {
   /** Error source, must be translation_file */
-  source: String,
+  source: string,
   /**
   * Type of element of the user's Telegram Passport which has the issue, one 
   * of “passport”, “driver_license”, “identity_card”, “internal_passport”, 
   * “utility_bill”, “bank_statement”, “rental_agreement”, 
   * “passport_registration”, “temporary_registration”
   */
-  type: String,
+  type: string,
   /** Base64-encoded file hash */
-  file_hash: String,
+  file_hash: string,
   /** Error message */
-  message: String,
+  message: string,
   
 }
 
@@ -2406,18 +2462,18 @@ export type PassportElementErrorTranslationFile = {
 */
 export type PassportElementErrorTranslationFiles = {
   /** Error source, must be translation_files */
-  source: String,
+  source: string,
   /**
   * Type of element of the user's Telegram Passport which has the issue, one 
   * of “passport”, “driver_license”, “identity_card”, “internal_passport”, 
   * “utility_bill”, “bank_statement”, “rental_agreement”, 
   * “passport_registration”, “temporary_registration”
   */
-  type: String,
+  type: string,
   /** List of base64-encoded file hashes */
-  file_hashes: Array<String>,
+  file_hashes: Array<string>,
   /** Error message */
-  message: String,
+  message: string,
   
 }
 
@@ -2427,13 +2483,13 @@ export type PassportElementErrorTranslationFiles = {
 */
 export type PassportElementErrorUnspecified = {
   /** Error source, must be unspecified */
-  source: String,
+  source: string,
   /** Type of element of the user's Telegram Passport which has the issue */
-  type: String,
+  type: string,
   /** Base64-encoded element hash */
-  element_hash: String,
+  element_hash: string,
   /** Error message */
-  message: String,
+  message: string,
   
 }
 
@@ -2443,9 +2499,9 @@ export type PassportElementErrorUnspecified = {
 */
 export type Game = {
   /** Title of the game */
-  title: String,
+  title: string,
   /** Description of the game */
-  description: String,
+  description: string,
   /** Photo that will be displayed in the game message in chats. */
   photo: Array<PhotoSize>,
   /**
@@ -2454,7 +2510,7 @@ export type Game = {
   * for the game when the bot calls setGameScore, or manually edited using 
   * editMessageText. 0-4096 characters.
   */
-  text?: String,
+  text?: string,
   /**
   * Optional. Special entities that appear in text, such as usernames, URLs, 
   * bot commands, etc.
@@ -2472,18 +2528,15 @@ export type Game = {
 * A placeholder, currently holds no information. Use BotFather to set up 
 * your game.
 */
-export type CallbackGame = {
-  
-}
-
+export type CallbackGame = any
 /** This object represents one row of the high scores table for a game. */
 export type GameHighScore = {
   /** Position in high score table for the game */
-  position: Number,
+  position: number,
   /** User */
   user: User,
   /** Score */
-  score: Number,
+  score: number,
   
 }
 
