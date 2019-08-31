@@ -1,11 +1,15 @@
 const { JSDOM } = require("jsdom")
 const fetch = require("node-fetch")
 const fs = require("fs")
+const path = require("path")
 
 const {Parser} = require("./lib/parser.js")
 const TypeScriptPrinter = require("./lib/typeScriptPrinter.js")
 
 
+
+const PATH_TS = path.join(__dirname, "javascript", "index.d.ts");
+const PATH_FLOW = path.join(__dirname, "javascript", "index.js.flow");
 
 const URL_BOTS_API = `https://core.telegram.org/bots/api`;
 
@@ -24,6 +28,6 @@ const URL_BOTS_API = `https://core.telegram.org/bots/api`;
 	const typesTSCode = (new TypeScriptPrinter(types)).printer(types);
 
 	console.log(`Save ts code`);
-	fs.writeFileSync("./javascript/index.d.ts", typesTSCode);
-	fs.writeFileSync("./javascript/index.js.flow", typesTSCode);
+	fs.writeFileSync(PATH_TS, typesTSCode);
+	fs.writeFileSync(PATH_FLOW, typesTSCode);
 })();
